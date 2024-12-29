@@ -1,4 +1,4 @@
-## Como posso testá-lo?:
+## Como posso testá-lo?
 
 ```
 - Instale a virtualenv no seu sistema: apt install python3.10-venv ✔
@@ -7,7 +7,7 @@
 
 - Ative a env: source env/bin/activate ou source env\scripts\activate (Se você estiver no Windows) ✔
 
-- Instale o pip, caso nao tenha: sudo apt install python3-pip ✔
+- Instale o pip, caso necessario: sudo apt install python3-pip ✔
 
 - Instale o wheel, caso necessario: pip install wheel ✔
 
