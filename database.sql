@@ -1,29 +1,29 @@
 CREATE TABLE [orgao] (
   [codigo_orgao] INTEGER PRIMARY KEY,
-  [nome_orgao] TEXT,
+  [nome_orgao] TEXT NOT NULL,
   [codigo_orgao_superior] INTEGER NULL,
   FOREIGN KEY ([codigo_orgao_superior]) REFERENCES [orgao]([codigo_orgao])
 );
 
 CREATE TABLE [bilhete] (
   [localizador] TEXT PRIMARY KEY,
-  [numero_pcdp] TEXT,
-  [data_emissao] DATE,
-  [data_embarque] DATE,
+  [numero_pcdp] TEXT NOT NULL,
+  [data_emissao] DATE NOT NULL,
+  [data_embarque] DATE NOT NULL,
   [valor_tarifa_comercial] REAL,
   [percentual_desconto_aplicado] REAL,
   [valor_tarifa_governo] REAL,
   [valor_tarifa_embarque] REAL,
-  [valor_bilhete] REAL,
-  [classe_tarifaria] TEXT,
-  [emissao] BOOLEAN,
-  [no_show] BOOLEAN,
-  [remarcado] BOOLEAN,
-  [cancelado] BOOLEAN,
+  [valor_bilhete] REAL NOT NULL,
+  [classe_tarifaria] TEXT NOT NULL,
+  [emissao] BOOLEAN NOT NULL,
+  [no_show] BOOLEAN NOT NULL,
+  [remarcado] BOOLEAN NOT NULL,
+  [cancelado] BOOLEAN NOT NULL,
   [valor_multas] REAL,
   [valor_reembolso] REAL,
   [diferenca_tarifa] REAL,
-  [situacao_bilhete] TEXT,
+  [situacao_bilhete] TEXT NOT NULL,
   [id_companhia_aerea] INTEGER,
   FOREIGN KEY ([id_companhia_aerea]) REFERENCES [companhia_aerea]([id_companhia_aerea])
 );
@@ -38,23 +38,23 @@ CREATE TABLE [orgao_bilhete] (
 
 CREATE TABLE [companhia_aerea] (
   [id_companhia_aerea] INTEGER PRIMARY KEY,
-  [nome_companhia] TEXT,
+  [nome_companhia] TEXT NOT NULL,
   [regra_tarifaria] TEXT NULL
 );
 
 CREATE TABLE [aviao] (
   [id_aviao] INTEGER PRIMARY KEY,
-  [modelo] TEXT,
-  [assentos] INTEGER,
-  [selo_anac] TEXT,
+  [modelo] TEXT UNIQUE NOT NULL,
+  [assentos] INTEGER NOT NULL,
+  [selo_anac] TEXT NOT NULL,
   [motor] TEXT NULL
 );
 
 CREATE TABLE [companhia_aerea_aviao] (
   [id_aviao] INTEGER,
   [id_companhia_aerea] INTEGER,
-  [ativos] INTEGER,
-  [inativos] INTEGER,
+  [ativos] INTEGER NOT NULL,
+  [inativos] INTEGER NOT NULL,
   PRIMARY KEY ([id_aviao], [id_companhia_aerea]),
   FOREIGN KEY ([id_aviao]) REFERENCES [aviao]([id_aviao]),
   FOREIGN KEY ([id_companhia_aerea]) REFERENCES [companhia_aerea]([id_companhia_aerea])
