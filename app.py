@@ -65,7 +65,7 @@ if selected_table:
 
     elif selected_table == "aviao":
       filtro_modelo = st.sidebar.text_input("Filtrar por modelo do avião:")
-      filtro_selo = st.sidebar.selectbox("Filtrar por situação do bilhete:", ["", 'A', 'B', 'C'])
+      filtro_selo = st.sidebar.selectbox("Filtrar por selo ANAC:", ["", 'A', 'B', 'C'])
 
       if filtro_modelo:
         df = df[df["modelo"].str.contains(filtro_modelo, case=False, na=False)]
