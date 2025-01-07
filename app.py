@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-from estatisticas.estatisticasOrgao import estatisticas_orgaos
-from estatisticas.estatisticasBilhete import estatisticas_bilhete
-from estatisticas.estatisticasCompanhia import estatisticas_companhia
+from estatisticasOrgao import estatisticas_orgaos
+from estatisticasBilhete import estatisticas_bilhete
+from estatisticasCompanhia import estatisticas_companhia
 
 csv_files = {
   "orgao": "tables/csv_for_streamlit/orgao.csv",

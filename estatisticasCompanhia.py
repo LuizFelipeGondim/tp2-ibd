@@ -1,17 +1,19 @@
 import pandas as pd
-import altair as alt
 import streamlit as st
 
 def estatisticas_companhia():
-    
+  """
+  Calcula e exibe as estatísticas baseadas na tabela companhia e aviões.
+  """
+
   df_companhia_aerea = pd.read_csv("tables/csv_for_streamlit/companhia_aerea.csv")
   df_companhia_aviao = pd.read_csv("tables/csv_for_streamlit/companhia_aerea_aviao.csv")
   df_aviao = pd.read_csv("tables/csv_for_streamlit/aviao.csv")
 
   df_companhias = pd.merge(
-      df_companhia_aerea,
-      df_companhia_aviao,
-      on="id_companhia_aerea"
+    df_companhia_aerea,
+    df_companhia_aviao,
+    on="id_companhia_aerea"
   )
 
   df_companhias["ativos"] = df_companhias["ativos"].fillna(0)
