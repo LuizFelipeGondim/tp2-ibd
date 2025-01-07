@@ -15,8 +15,8 @@
 
 - Inicie a aplicação: jupyter notebook ✔
 
-- Acesse o link http://localhost:8888/tree para ver o notebook ✔
+- Acesse o link no terminal para ver o notebook ✔
 
-- Selecione code.ipynb ✔
+- Selecione consultas.ipynb ✔
 
 ```

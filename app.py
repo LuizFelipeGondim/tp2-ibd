@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+from estatisticas.estatisticasOrgao import estatisticas_orgaos
+from estatisticas.estatisticasBilhete import estatisticas_bilhete
+from estatisticas.estatisticasCompanhia import estatisticas_companhia
 
 csv_files = {
   "orgao": "tables/csv_for_streamlit/orgao.csv",
@@ -78,8 +81,18 @@ if selected_table:
     if num_rows != "Todos":
       df = df.head(num_rows)
 
-    st.write(f"Dados da tabela **{selected_table}**:")
+    st.subheader(f"Dados da tabela **{selected_table}**:")
     st.dataframe(df)
+
+    if (selected_table == "orgao"):
+      st.subheader("Informações importantes:")
+      estatisticas_orgaos()
+    elif (selected_table == "bilhete"):
+      st.subheader("Informações importantes:")
+      estatisticas_bilhete()
+    elif (selected_table == "companhia_aerea" or selected_table == "aviao"):
+      st.subheader("Informações importantes:")
+      estatisticas_companhia()
 
   except Exception as e:
     st.error(f"Erro ao carregar o arquivo: {e}")
